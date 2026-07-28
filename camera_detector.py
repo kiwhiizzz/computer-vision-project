@@ -18,16 +18,20 @@ def main():
 
         #Muestra la cámara
         frame = cv.flip(frame, 1)
-        cv.imshow('frame', frame)
+        cv.imshow('Cámara', frame)
 
         #Comando de finalizar acción / se finaliza con "esc"
         t = cv.waitKey(1)
         if t == 27:
             break
 
-    #Descripcion en proceso...
+    #Cierra los procesos inicializados en openCV
     cap.release()
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
+
+def landmarks_view() :
+    print("Hola")
+    return 0 

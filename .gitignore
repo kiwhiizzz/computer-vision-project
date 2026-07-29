@@ -1,0 +1,11 @@
+# Entornos virtuales (¡no subir a GitHub!)
+venv/
+.venv/
+env/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Configuración local de VS Code
+.vscode/

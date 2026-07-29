@@ -67,7 +67,7 @@ def main():
         frame = landmarks_view(hands, frame)
 
         #Muestra la cámara
-        cv.imshow('Cámara', frame)
+        cv.imshow('Camera', frame)
 
         #Comando de finalizar acción / se finaliza con "esc"
         t = cv.waitKey(1)

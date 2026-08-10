@@ -42,12 +42,13 @@ def landmarks_view(hands, frame) :
             
     rgb_frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
     result = hands.process(rgb_frame)
+    all_hand_landmarks = result.multi_hand_landmarks
 
-    if result.multi_hand_landmarks:
-        for hand_landmarks in result.multi_hand_landmarks:
-            mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+    if all_hand_landmarks:
+        for hand in all_hand_landmarks:
+            mp_drawing.draw_landmarks(frame, hand, mp_hands.HAND_CONNECTIONS)
 
-    return frame
+    return frame, all_hand_landmarks
 
 def main():
     #Inicializamos la cámara
@@ -64,7 +65,7 @@ def main():
 
         #Muestra los frames
         frame = cv.flip(frame, 1)
-        frame = landmarks_view(hands, frame)
+        frame, all_hand_landmarks = landmarks_view(hands, frame)
 
         #Muestra la cámara
         cv.imshow('Camera', frame)

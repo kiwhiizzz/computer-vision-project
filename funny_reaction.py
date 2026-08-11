@@ -24,6 +24,7 @@ class funny_video:
             return
         
         cv.imshow('Funny', video_frame)
+        
     #Detiene el video
     def stop(self): 
         self.cap.release()

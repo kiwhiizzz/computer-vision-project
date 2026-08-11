@@ -11,12 +11,7 @@ def main():
     #Inicializamos las manos
     hands = start_hands()
 
-    
-    print("Directorio actual:", os.getcwd())
-    print("¿Existe la carpeta assets?", os.path.exists("assets"))
-    print("Contenido de assets:", os.listdir("assets") if os.path.exists("assets") else "no existe")
     reaction = funny_video("assets/funnyReaction.mp4")
-    print(os.path.exists("assets/funnyReaction.mp4"))
 
     while True:
         #Obtención de frame

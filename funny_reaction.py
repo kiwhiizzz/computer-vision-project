@@ -27,6 +27,10 @@ class funny_video:
         
     #Detiene el video
     def stop(self): 
-        self.cap.release()
-        cv.destroyAllWindows('Funny')
+        if self.cap is not None:
+            self.cap.release()
+        try:
+            cv.destroyWindow('Funny')
+        except cv.error:
+            pass
         self.playing = False

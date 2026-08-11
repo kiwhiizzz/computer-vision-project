@@ -10,13 +10,22 @@ class funny_video:
     #Como inicializar el video 
     def start(self):
         self.cap = cv.VideoCapture(self.path)
-        video_frame = get_frame(self.cap)
-        cv.imshow('Funny', video_frame)
+        self.playing = True
 
     #Como reaacciona despues de terminar el video
     def update(self):
-        pass
+        if not self.playing:
+            return
+        
+        video_frame = get_frame(self.cap)
 
+        if video_frame is None:
+            self.stop()
+            return
+        
+        cv.imshow('Funny', video_frame)
     #Detiene el video
-    def stop(self):
-        pass
+    def stop(self): 
+        self.cap.release()
+        cv.destroyAllWindows('Funny')
+        self.playing = False

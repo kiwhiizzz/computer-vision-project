@@ -2,6 +2,7 @@ import cv2 as cv
 from camera_detector import get_frame, start_cam, start_hands,landmarks_view
 from gesture_analysis import gesture_selected
 from funny_reaction import funny_video
+import os
 
 def main():
     #Inicializamos la cámara
@@ -10,7 +11,12 @@ def main():
     #Inicializamos las manos
     hands = start_hands()
 
-    reaction = funny_video("C:/Use/KIARA/Videos/funnyReaction.mp4")
+    
+    print("Directorio actual:", os.getcwd())
+    print("¿Existe la carpeta assets?", os.path.exists("assets"))
+    print("Contenido de assets:", os.listdir("assets") if os.path.exists("assets") else "no existe")
+    reaction = funny_video("assets/funnyReaction.mp4")
+    print(os.path.exists("assets/funnyReaction.mp4"))
 
     while True:
         #Obtención de frame
@@ -27,7 +33,7 @@ def main():
 
         #Reacciona al recibir cierta acción
         if gesture_selected(all_hand_landmarks):
-            if not reaction.playing():
+            if not reaction.playing:
                 reaction.start()
 
         reaction.update()

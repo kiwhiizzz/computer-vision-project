@@ -16,7 +16,7 @@ class funny_video:
     def update(self):
         if not self.playing:
             return
-        
+            
         video_frame = get_frame(self.cap)
 
         if video_frame is None:

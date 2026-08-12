@@ -11,7 +11,7 @@ def main():
     #Inicializamos las manos
     hands = start_hands()
 
-    reaction = funny_video("assets/funnyReaction.mp4")
+    reaction = funny_video("assets/funnyReaction.mp4", "assets/funnyReaction.mp3")
 
     while True:
         #Obtención de frame
